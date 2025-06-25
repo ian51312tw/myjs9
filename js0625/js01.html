@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 變數宣告，變數為【儲存資料的地方】
+        // 由伺服器資料庫取得資料值，代入變數進行運算處理
+        var a;
+        console.log(a);
+        console.log(typeof a);
+        // 此時未給值，在網頁F12頁面將顯示"undefined"，為尚未定義，經typeof進行查詢，黑色字的undefined為typeof回傳的結果，意義為此變數空值未定義
+        // 變數給值，以"="來進行指派，經過第15行時定義為"字串"(黑色)
+        a = "陳1";
+        console.log(a);
+        console.log(typeof a);   // 變數型別經typeof查詢後回傳為字串(string)
+        // 改變變數型別為"整數數值"(藍色)，數值含有整數或浮點數，有無具備小數點即表示須使電腦判定為何者
+        a = 123;
+        console.log(a);
+        console.log(typeof a);   // 變數型別經typeof查詢後回傳為數值(number)
+        // 改變變數型別為"浮點數數值"
+        a = 123.01;
+        console.log(a);
+        console.log(typeof a);   // 變數型別經typeof查詢後回傳為數值(number)
+        // 改變變數型別為"布林值"
+        a = true;
+        console.log(a);
+        console.log(typeof a);   // 變數型別經typeof查詢後回傳為布林值(boolean)
+
+
+
+    </script>
+</body>
+
+</html>

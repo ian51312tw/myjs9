@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 宣告兩個變數存放資料
+        // 並且加總結果給另一個變數
+        var a = 5;
+        var b = 3;
+        var c = a + b;
+        // 查看結果
+        console.log(c);
+        // 查看結果"5+3=8"
+        console.log(a + "+" + b + "=" + c);
+        // 改用樣板字串template string(字串字面值)
+        // 使用反引號(``)，變數部分${變數名稱}
+        // 使用樣板字串即可不須在數值接字串處加上"+"及雙引號(詳見第36行範例)
+        console.log(`${a}+${b}=${c}`);
+        // 若未宣告c值，也可直接改寫為=${a+b}，可進行運算
+
+        // 檢查分數是否及格
+        var score = 80;
+        console.log(score >= 60);
+        // 將布林結果改為判斷式，{}前為判斷運算，{}後為判斷後要進行的程式敘述
+        // test 加上分數
+        if (score >= 60) {
+            // 條件成立
+            console.log(score + "分=>及格");
+        } else {
+            // 條件不成立
+            console.log(`${score}分=>不及格`);
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

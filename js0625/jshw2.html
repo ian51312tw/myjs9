@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 成績檢測
+        console.log("第一題：請填入分數範圍 0~100");
+
+        var score = 60
+
+        if (score >= 60 && score <= 100) {
+            console.log(`${score}分=>及格`);
+        } else if (score < 60 && score >= 0) {
+            console.log(`${score}分=>不及格`);
+        } else if (score > 100 || score < 0) {
+            console.log("輸入錯誤，請填入範圍內數字");
+        } else {
+            console.log("請勿輸入其他數字以外字元");
+        }
+
+        /*老師建議解答 
+        console.log("第一題A：請填入分數範圍 0~100");
+
+        // 變數沿用上方練習，不須新建
+        // var score = 101;
+        // *防呆請務必先做！*
+        
+        if (score > 100 || score < 0) {
+            alert("分數錯誤");
+        } else {
+            if (score >= 60) {
+                console.log("及格");
+            } else {
+                console.log("不及格");
+            }
+
+        }
+        */
+
+        // 奇偶數檢測
+        console.log("第二題：請輸入整數");
+
+        var num = 20
+
+        if (num % 2 == 1) {
+            console.log(`${num}=>此數為奇數`);
+        } else if (num === 0) {
+            console.log(`${num}=>此數為0`);
+        } else {
+            console.log(`${num}=>此數為偶數`);
+        }
+
+        /* 老師提供另解
+        var num=10;
+        var result = "偶數";
+
+        if(num %2 == 1) {
+            result = "奇數";
+        }
+        console.log(`${num}是${result}`);
+        */
+
+        // 倍數檢測
+        console.log("第三題：請輸入整數");
+
+        var numA = 23
+        var numB = 15
+
+        if (numA % numB == 0) {
+            console.log(`${numA}為${numB}的倍數，且為${numA / numB}倍`)
+        } else {
+            console.log(`${numA}不為${numB}的倍數，相除後結果為${numA / numB}倍，餘${numA % numB}`)
+        }
+
+    </script>
+</body>
+
+</html>
