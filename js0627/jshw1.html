@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        console.log("第一題：找出任意二數最大值");
+
+        var n1 = 6;
+        var n2 = 4;
+        var max = 8;
+        if (Math.floor(n1) != n1 || Math.floor(n2) != n2 || Math.floor(max) != max) {
+            console.log("輸入錯誤，請輸入整數");
+        } else if (n1 > max || n2 > max) {
+            console.log("最大值為" + max + "，請輸入" + max + "以下數字");
+        } else if (n1 > n2) {
+            console.log(n1);
+        } else {
+            console.log(n2);
+        }
+
+        console.log("第二題：設計水費查詢程式")
+
+        var usage1 = 8;
+        var usage2 = 48;
+
+        var lv1 = 7.35;
+        var lv2 = 9.45;
+        var lv3 = 11.55;
+        var lv4 = 12.075;
+
+        var dg1 = 1;
+        var dg2 = 10;
+        var dg3 = 30;
+        var dg4 = 50;
+
+        // 用水度數：8
+        // 每度為：7.35元
+        // 實付水費為：58元
+
+        if (usage1 < dg1) {
+            console.log("輸入錯誤，請重新輸入");
+        } else if (usage1 >= dg1 && usage1 < dg2) {
+            console.log(`用水度數為${usage1}，每度為${lv1}元，實付${usage1 * lv1}`);
+        } else if (usage1 >= dg2 && usage1 < dg3) {
+            console.log(`用水度數為${usage1}，每度為${lv2}元，實付${usage1 * lv2}`);
+        } else if (usage1 >= dg3 && usage1 < dg4) {
+            console.log(`用水度數為${usage1}，每度為${lv3}元，實付${usage1 * lv3}`);
+        } else {
+            console.log(`用水度數為${usage1}，每度為${lv4}元，實付${usage1 * lv4}`);
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
