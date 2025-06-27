@@ -48,7 +48,9 @@
 
         var num = 20
 
-        if (num % 2 == 1) {
+        if (Math.floor(num) != num) {
+            console.log("輸入錯誤，請輸入整數")
+        } else if (num % 2 == 1) {
             console.log(`${num}=>此數為奇數`);
         } else if (num === 0) {
             console.log(`${num}=>此數為0`);
