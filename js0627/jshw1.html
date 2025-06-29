@@ -39,6 +39,8 @@
         var dg2 = 10;
         var dg3 = 30;
         var dg4 = 50;
+        var cost;
+        var csotdg;
 
         // 用水度數：8
         // 每度為：7.35元
@@ -47,14 +49,75 @@
         if (usage1 < dg1) {
             console.log("輸入錯誤，請重新輸入");
         } else if (usage1 >= dg1 && usage1 < dg2) {
-            console.log(`用水度數為${usage1}，每度為${lv1}元，實付${usage1 * lv1}`);
+            cost = usage1 * lv1;
+            costdg = lv1;
         } else if (usage1 >= dg2 && usage1 < dg3) {
-            console.log(`用水度數為${usage1}，每度為${lv2}元，實付${usage1 * lv2}`);
+            cost = usage1 * lv2;
+            costdg = lv2;
         } else if (usage1 >= dg3 && usage1 < dg4) {
-            console.log(`用水度數為${usage1}，每度為${lv3}元，實付${usage1 * lv3}`);
+            cost = usage1 * lv3;
+            costdg = lv3;
         } else {
-            console.log(`用水度數為${usage1}，每度為${lv4}元，實付${usage1 * lv4}`);
+            cost = usage1 * lv4;
+            costdg = lv4;
         }
+
+        if (cost >= 1) {
+            console.log(`用水度數為${usage1}，每度為${costdg}元，實付${Math.floor(cost)}元`);
+        }
+        // 依題目確認如何處理小數
+
+
+        // 用水度數：48
+        // 每度為：11.55元
+        // 實付水費為：554元
+
+        if (usage2 < dg1) {
+            console.log("輸入錯誤，請重新輸入");
+        } else if (usage2 >= dg1 && usage2 < dg2) {
+            cost = usage2 * lv1;
+            costdg = lv1;
+        } else if (usage2 >= dg2 && usage2 < dg3) {
+            cost = usage2 * lv2;
+            costdg = lv2;
+        } else if (usage2 >= dg3 && usage2 < dg4) {
+            cost = usage2 * lv3;
+            costdg = lv3;
+        } else {
+            cost = usage2 * lv4;
+            costdg = lv4;
+        }
+
+        if (cost >= 1) {
+            console.log(`用水度數為${usage2}，每度為${costdg}元，實付${Math.floor(cost)}元`);
+        }
+        // 依題目確認如何處理小數
+
+        console.log("第三題：設計分數等級程式");
+
+        var score = 82;
+
+        if (score < 0 || score > 100) {
+            console.log("輸入錯誤，請重新輸入");
+        } else if (score >= 80 && score <= 100) {
+            console.log(`分數：${score} => 成績等級為甲等`);
+        } else if (score >= 70 && score <= 79) {
+            console.log(`分數：${score} => 成績等級為乙等`);
+        } else if (score >= 60 && score <= 69) {
+            console.log(`分數：${score} => 成績等級為丙等`);
+        } else {
+            console.log(`分數：${score} => 成績等級為丁等`);
+        }
+
+
+        console.log("第四題：設計票價費用試算程式")
+
+        var type1 = 500;
+        var type2 = type1 * 0.8;
+        var type3 = type2 * 0.7;
+
+
+
 
 
 
