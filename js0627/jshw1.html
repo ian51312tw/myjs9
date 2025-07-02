@@ -124,15 +124,37 @@
 
         console.log("第四題：設計票價費用試算程式")
 
-        var type1 = 500;
-        var type2 = type1 * 0.8;
-        var type3 = type2 * 0.7;
-        
-        var amount1
+       var type = "";
 
-        //票價種類(1-3) => 1
-        // 張數 => 2
-        // 顯示「全票2張，票價為：500元」
+       var cost1 = 500;
+       var cost2 = cost1 * 0.8;
+       var cost3 = cost2 * 0.7;
+
+       var amount = "";
+
+       //1. 票價種類(1-3) => 1    張數 => 2    顯示「全票2張，票價為：500元」
+       //2. 票價種類(1-3) => 2    張數 => 3    顯示「優待票3張，票價為：1200元」
+       //3. 票價種類(1-3) => 3    張數 => 2    顯示「敬老票2張，票價為：560元」
+
+       type = prompt(`請輸入票種：
+       1=>全票${cost1}元
+       2=>優待票${cost2}元
+       3=>敬老票${cost3}元`);
+       amount = prompt(`請輸入數量`);
+
+
+       if (Math.floor(type) != type || Math.floor(amount) != amount) {
+           console.log("輸入錯誤，請重新輸入，票種及數量皆只可輸入整數！");
+       } else if (type > 3 || type < 1) {
+           console.log("輸入錯誤，請重新輸入，票種僅可輸入1、2、3三個數字");
+       } else if (type == 1) {
+           console.log(`【全票】${amount}張，總共票價為${cost1 * amount}元`);
+       } else if (type == 2) {
+           console.log(`【優待票】${amount}張，總共票價為${cost2 * amount}元`);
+       } else if (type == 3) {
+           console.log(`【敬老票】${amount}張，總共票價為${cost3 * amount}元`);
+       }
+
 
         
 
