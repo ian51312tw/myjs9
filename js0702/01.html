@@ -38,7 +38,7 @@
         // document.write(8);
         // document.write(9);
         // document.write(10);
-        for (var i = 0; i <= 5; i = i +1) {
+        for (var i = 0; i <= 5; i = i + 1) {
             document.write(i + "<br>");
         }
         document.write("<hr>");
@@ -54,8 +54,67 @@
         for (var i = 1; i <= 10; i = i + 2) {
             document.write(i + ',');
         }
+        document.write("<hr>");
 
         //練習：1-10合計
+        /*
+        s=0
+        i=1 => s=s+i => s=0+1=1
+        i=2 => 檢查i是否有<=10 => s=s+i => s=1(上次的s)+2=3
+        i=3 => s=3+3=6
+        ...
+        */
+
+        var s = 0;
+        for (var i = 1; i <= 10; i++) {
+            s = s + i;
+        }
+        document.write("1+2+3+....+10=" + s + "<br>");
+        document.write("<hr>");
+        //練習：請統計1-100(遞增)之間的奇數和？
+        //練習：請統計100-1(遞減)之間的偶數和？
+        //練習：請統計1-100之間的三的倍數同時也是5的倍數和與列出數字？
+
+        //練習1
+        var s1 = 0;
+        for (var i1 = 1; i1 <= 100; i1++) {
+            if (i1 % 2 == 1) {
+                s1 = s1 + i1;
+            }
+        }
+        document.write("1-100之間的奇數和為" + s1 + "<br>");
+        document.write("<hr>");
+        //練習2
+        var s2 = 0;
+        for (var i2 = 100; i2 >= 1; i2--) {
+            if (i2 % 2 == 0) {
+                s2 = s2 + i2;
+            }
+        }
+        document.write("100-1之間的偶數和為" + s2 + "<br>");
+        document.write("<hr>");
+        //練習3
+        var s3 = 0;
+
+        document.write("3與5的公倍數為：");
+        for (var i3 = 1; i3 <= 100; i3++) {
+            if (i3 % 3 == 0 && i3 % 5 == 0) {
+                document.write(i3);
+                if (100 - i3 > 15) {
+                    document.write("+");
+                } else {
+                    document.write("=");
+                }
+                s3 = s3 + i3;
+            }
+        }
+
+        // 迴圈可以用break結束，但「不能」寫在單獨的判斷式中，一定要有迴圈
+
+        document.write("其總和為" + s3 + "<br>");
+        document.write("<hr>");
+
+
 
     </script>
 </body>

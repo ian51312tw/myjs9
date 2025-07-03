@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 外層=>控制列數
+        for (var i = 1; i <= 5; i++) {
+            // 內層=>星星個數
+            // 因為星星個數==外層目前列數
+            // 所以星星個數的執行次數會跟目前列數值一樣
+            for (var j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            //當達到一樣時(<=中的=)跳出迴圈進行到換行
+            document.write("<br>");
+            //當換行後，符合j<=i，重新進行列印星星
+        }
+
+
+        //九九乘法表   &nbsp; <-空格
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= 9; j++) {
+                if (i * j < 10) {
+                    document.write(`${i}*${j}=0${i * j}&nbsp;&nbsp;`);
+                } else {
+                    document.write(`${i}*${j}=${i * j}&nbsp;&nbsp;`);
+                }
+                // 因為網頁不允許連續多個半形空白，所以連續多個空白會視為一個
+                // 若要多個空白的話，可以使用全形空白或是&nbsp; <= HTML的空白符號(建議)
+            }
+            document.write("<br>");
+        }
+
+
+
+    </script>
+</body>
+
+</html>
