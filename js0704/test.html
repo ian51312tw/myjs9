@@ -26,11 +26,8 @@
         var failNum = 0
         var classTatol = 0
         var classAverage = 0
-
         while (1) {
             var score = prompt("請輸入分數");
-
-
             if (score >= 0 && score <= 100) {
                 alert("輸入的分數為：" + score);
                 if (score >= 60) {
@@ -58,7 +55,6 @@
                 continue;
             }
         }
-
         document.write(`及格人數：${passNum}<br>`);
         document.write(`不及格人數：${failNum}<br>`);
         document.write(`全班總分：${classTatol}<br>`);
