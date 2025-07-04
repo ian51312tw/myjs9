@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Test：成績輸入程式</h1>
+    <p>請輸入成績N次，直到輸入-1時結束</p>
+    <p>並統計出如下</p>
+    <p>
+    <ul>
+        <li>及格人數：</li>
+        <li>不及格人數：</li>
+        <li>全班總分：</li>
+        <li>全班平均：</li>
+    </ul>
+    </p>
+    <p id="result">計算結果</p>
+
+    <script>
+        var passNum = 0
+        var failNum = 0
+        var classTatol = 0
+        var classAverage = 0
+        while (1) {
+            var score = prompt("請輸入分數");
+            if (score == -1) {
+                alert("輸入結束")
+                break;
+            } else if (score == null) {
+                alert("請輸入成績");
+                continue; 
+            } else if (score == "") {
+                alert("不可輸入空白，請重新輸入");
+                continue;
+            } else if (isNaN(Number(score))) {
+                alert("err！非數字，請重新輸入");
+                continue;
+            } else if (score < 0 || score > 100) {
+                alert("err！不是有效範圍0-100，請重新輸入");
+                continue;
+            } else {
+                alert("輸入的分數為：" + score);
+                if (score >= 60) {
+                    passNum++;
+                } else if (score < 60) {
+                    failNum++;
+                }
+                var classTatol = classTatol + Number(score);
+                var classAverage = classTatol / (passNum + failNum);
+                continue;
+            }
+        }
+        document.write(`及格人數：${passNum}<br>`);
+        document.write(`不及格人數：${failNum}<br>`);
+        document.write(`全班總分：${classTatol}<br>`);
+        document.write(`全班平均：${classAverage}<br>`);
+    </script>
+</body>
+
+</html>
