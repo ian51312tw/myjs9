@@ -22,43 +22,103 @@
     <p id="result">計算結果</p>
 
     <script>
+        // var passNum = 0
+        // var failNum = 0
+        // var classTatol = 0
+        // var classAverage = 0
+        // while (1) {
+        //     var score = prompt("請輸入分數");
+        //     if (score >= 0 && score <= 100) {
+        //         alert("輸入的分數為：" + score);
+        //         if (score >= 60) {
+        //             passNum++;
+        //         } else if (score < 60) {
+        //             failNum++;
+        //         }
+        //         var classTatol=Number(classTatol)+Number(score);
+        //         var classAverage=Number(classTatol)/(Number(passNum)+Number(failNum));
+        //         continue;
+        //     } else if (score == -1) {
+        //         alert("輸入結束")
+        //         break;
+        //     } else if (score == null) {
+        //         alert("請輸入成績");
+        //         continue;
+        //     } else if (score == "") {
+        //         alert("不可輸入空白，請重新輸入");
+        //         continue;
+        //     } else if (isNaN(Number(score))) {
+        //         alert("err！非數字，請重新輸入");
+        //         continue;
+        //     } else if (score < 0 || score > 100) {
+        //         alert("err！不是有效範圍0-100，請重新輸入");
+        //         continue;
+        //     }
+        // }
+        // document.write(`及格人數：${passNum}<br>`);
+        // document.write(`不及格人數：${failNum}<br>`);
+        // document.write(`全班總分：${classTatol}<br>`);
+        // document.write(`全班平均：${classAverage}<br>`);
+        //----------------------------------------------------------------------------------------------------
         var passNum = 0
         var failNum = 0
         var classTatol = 0
         var classAverage = 0
         while (1) {
             var score = prompt("請輸入分數");
-            if (score >= 0 && score <= 100) {
-                alert("輸入的分數為：" + score);
-                if (score >= 60) {
-                    passNum++;
-                } else if (score < 60) {
-                    failNum++;
-                }
-                var classTatol=parseInt(classTatol)+parseInt(score);
-                var classAverage=parseInt(classTatol)/(parseInt(passNum)+parseInt(failNum));
-                continue;
-            } else if (score == -1) {
-                alert("輸入結束")
+
+            // 先檢查有無資料/取消 無資料↓            
+            // break即結束迴圈，可不接else if
+            if (score == null) {
+                passNum = 0;
+                failNum = 0;
+                classTatol = 0;
+                classAverage = 0;
+                alert("您按了取消，即將結束輸入！");
                 break;
-            } else if (score == null) {
-                alert("請輸入成績");
-                continue;
-            } else if (score == "") {
+            }
+            // 檢查是否空白
+            // 去除資料前後的空白 => trim()
+            if (score.trim() == "") {
                 alert("不可輸入空白，請重新輸入");
                 continue;
-            } else if (isNaN(Number(score))) {
+            }
+            // 有資料
+            // 檢查是否結束
+            if (score == "-1") {
+                alert("成績輸入結束！");
+                break;
+            }
+            //*字串轉數字* -> 前面有空白或取消的情況，會先檢查
+            // 後續無皆有資料的狀況可直接轉為數字來輕量化撰寫量
+            score = Number(score);
+            // 檢查是否為數字
+            if (isNaN(Number(score))) {
                 alert("err！非數字，請重新輸入");
                 continue;
             } else if (score < 0 || score > 100) {
                 alert("err！不是有效範圍0-100，請重新輸入");
                 continue;
+            } else {    // 檢查是否及格
+                if (score >= 60) {
+                    passNum++;
+                } else {
+                    failNum++;
+                }
             }
+            var classTatol = classTatol + score;    //這行要寫在while迴圈內，才能累計總分
         }
-        document.write(`及格人數：${passNum}<br>`);
-        document.write(`不及格人數：${failNum}<br>`);
-        document.write(`全班總分：${classTatol}<br>`);
-        document.write(`全班平均：${classAverage}<br>`);
+        if (passNum + failNum > 0) {    //這行在while外是ok的，因為已結束迴圈，人數及分數已確定，但要注意分母不能為0，因此另設條件
+            var classAverage = classTatol / (passNum + failNum);
+        }
+        var result = document.getElementById("result");
+        // 顯示結果
+        // 不能使用textcontent來顯示結果，需使用innerHTML來顯示結果，因為textcontent會將html標籤當成文字來處理
+        result.innerHTML = `    
+            及格人數：${passNum}<br>
+            不及格人數：${failNum}<br>
+            全班總分：${classTatol}<br>
+            全班平均：${classAverage.toFixed(2)}<br>`;
     </script>
 </body>
 
