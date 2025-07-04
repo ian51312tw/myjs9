@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 標籤(擺放標題用) -->
+    <label for="n1">數值1</label>
+    <!-- 文字方塊預設式text，改成number就只能打數字 -->
+    <!-- label for 預設為空值，若for後方填寫文字方塊id，則可以點擊label即開啟文字方塊輸入 -->
+    <input type="number" id="n1">
+    <br><br>
+    <button onclick="tot1()">+</button>
+    <button onclick="tot2()">-</button>
+    <button onclick="tot3()">*</button>
+    <button onclick="tot4()">/</button>
+    <br><br>
+    <!-- id為單一值，一個檔案只能有一個，但class可以重複 -->
+    <label for="n2">數值2</label>
+    <input type="number" id="n2">
+    <br>
+    <p id="result">運算結果</p>
+
+    <script>
+        var n1 = document.getElementById("n1");
+        var n2 = document.getElementById("n2");
+        var result = document.getElementById("result");
+
+        function tot1() {
+            result.textContent = parseInt(n1.value) + parseInt(n2.value);
+        }
+        function tot2() {
+            result.textContent = parseInt(n1.value) - parseInt(n2.value);
+        }
+        function tot3() {
+            result.textContent = parseInt(n1.value) * parseInt(n2.value);
+        }
+        function tot4() {
+            // 兩數相除可能造成循環小數，將運算以()包裹起來後.toFixed(n)=將結果顯示n位小數
+            result.textContent = (parseInt(n1.value) / parseInt(n2.value)).toFixed(2);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

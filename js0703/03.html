@@ -8,10 +8,14 @@
 </head>
 
 <body>
-    <label for="">數值1</label>
+    <!-- 標籤(擺放標題用) -->
+    <label for="n1">數值1</label>
+    <!-- 文字方塊預設式text，改成number就只能打數字 -->
+    <!-- label for 預設為空值，若for後方填寫文字方塊id，則可以點擊label即開啟文字方塊輸入 -->
     <input type="number" id="n1">
     <br>
-    <label for="">數值2</label>
+    <!-- id為單一值，一個檔案只能有一個，但class可以重複 -->
+    <label for="n2">數值2</label>
     <input type="number" id="n2">
     <br>
     <button onclick="tot()">加總</button>
@@ -20,15 +24,31 @@
 
 
     <script>
+        /*
+            *以後方函式取得資料為例*
+            // 查看型別type of，文字方塊跟promt輸出後的內容皆為字串，要再轉型
+            console.log("轉換前 => " + typeof n1.value);
+            // 字串轉數值 => parseInt(字串資料)
+            console.log("字串轉數值後 => " + typeof parseInt(n1.value));
+            // 數值轉字串 => 數值資料.toString()
+            var strNum = 123;
+            console.log("數值轉字串後 => " + typeof strNum.toString());
+        */
+
+
         // 建立一個加總函式
         function tot() {
             // 取得數值1的位置及內容，藍色n1為變數名稱，紅色n1為id名稱，不衝突
-            var n1 = document.getElementById("n1").value;
-            // 取得數值2的內容，並且顯示在指定位置
-            var n2 = document.getElementById("n2").value;
+            // 此步為宣告「n1這個變數」為「原本id為n1」的文字方塊，即取得n1的「位置」
+            // 需再用.value來取得文字方塊內的「內容」
+            var n1 = document.getElementById("n1");
+            // 取得數值2的位置
+            var n2 = document.getElementById("n2");
+
             // 將特定id顯示在特定地點
-            document.getElementById("result").textContent = n1.value + n2value;
-        }
+            // text.content為取代文字，value為文字方塊中的內容
+            document.getElementById("result").textContent = parseInt(n1.value) + parseInt(n2.value);
+            }
 
     </script>
 </body>
