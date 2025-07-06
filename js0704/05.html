@@ -9,15 +9,8 @@
 
 <body>
     <h2>猜數字Hw：亂數-Math.random</h2>
-    <p>請使用亂數產生一個值（1-100）<br>
-        每次錯誤時，出現提示如下<br>
-        例如：<br>
-        亂數值：60<br>
-        第1次：50 => 太小了（提示：50-100）<br>
-        第2次：90 => 太大了（提示：50-90）<br>
-        第3次：80 => 太大了（提示：50-80）<br>
-        第4次：55 => 太小了（提示：55-80）<br>
-        第5次：60 => 猜對了</p>
+    <p>請使用亂數產生一個值（1-100）<br></p>
+    <p id="result">猜測結果</p>
     <script>
         // // 取亂數(0-1)之間
         // var rd = Math.random();
@@ -32,6 +25,8 @@
         // console.log(Math.floor(rd)+1)
         // ------------------------------------------------------------------------------------------
 
+        var min = 1;
+        var max = 100;
         var guessTime = 1
         var rd = Math.random() * 99;
         var ans = (Math.floor(rd) + 1);
@@ -42,6 +37,8 @@
             if (guess == null) {
                 guseeTime = 0;
                 alert("已取消輸入，統計結束");
+                var result = document.getElementById("result");
+                result.textContent = `未完成猜測，統計取消`;
                 break;
             }
             if (guess.trim() == "") {
@@ -52,19 +49,29 @@
             if (isNaN(guess)) {
                 alert("不可輸入文字or字串，請重新輸入數字");
                 continue;
-            } else if (guess < 1 || guess > 100) {
-                alert("請重新輸入1-100之間的數字");
+            } else if (guess < min || guess > max) {
+                alert(`請重新輸入${min}-${max}之間的數字`);
                 continue;
             } else {
-                guessTime++;
-                if(guess<ans){
-                    alert(`${}`)
-                    
+                if (guess < ans) {
+                    min = guess;
+                    alert(`第${guessTime}次：${guess} => 太小了（提示：${min}-${max}）`);
+                    guessTime++;
+                    continue;
+                } else if (guess > ans) {
+                    max = guess;
+                    alert(`第${guessTime}次：${guess} => 太大了（提示：${min}-${max}）`);
+                    guessTime++;
+                    continue;
+                } else {
+                    alert(`第${guessTime}次：${guess} => 猜對了`);
+                    break;
                 }
             }
-            
         }
-
+        var result = document.getElementById("result");
+        result.innerHTML = `猜測次數：${guessTime}<br>
+        猜測結果：${guess}<br>`;
 
     </script>
 </body>
