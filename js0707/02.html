@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>陣列</h2>
+    <hr>
+
+    <script>
+        // 建立一個陣列，再放任意五個值
+        let arr1 = [1, 2, 3, 4, 5, 6];
+        console.log(arr1);
+        // 使用迴圈，顯示陣列中的內容
+        // for (let i = 0; i <= 4; i++) {
+        for (let i = 0; i < arr1.length; i++) { // 可直接讓i<陣列長度，以免未來陣列內容修改時須不斷更新
+            // 並且須是i<長度，或是i<=長度-1，不然會多跑一次(ex整體長度為6，但陣列編號由0開始，6會是未定義的值)
+            console.log(arr1[i]);
+        }
+        //  -------------------------------------------------
+        let arr2 = [10, 200, 30];
+        console.log("尚未排序前" + arr2);
+        // 遞增排序
+        // 使用箭頭函式寫法(不用針對函式命名，即時回應用)
+        arr2.sort((a, b) => {
+            return a - b;   // a-b為遞增排序，b-a為遞減排序，-為「到」，而非「減號」
+        });
+        console.log("遞增排序後" + arr2);
+        // 遞減排序
+        arr2.sort((a, b) => {
+            return b - a;
+        });
+        console.log("遞減排序後" + arr2);
+    </script>
+
+</body>
+
+</html>

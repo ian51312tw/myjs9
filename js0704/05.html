@@ -33,7 +33,7 @@
         // console.log(rd);
         console.log(ans);
         while (1) {
-            var guess = prompt(`第${guessTime}次，請輸入所猜數字`);
+            var guess = prompt(`第${guessTime}次猜測，請輸入任意數字1-100`);
             if (guess == null) {
                 guseeTime = 0;
                 alert("已取消輸入，統計結束");
@@ -57,12 +57,12 @@
                     min = guess;
                     alert(`第${guessTime}次：${guess} => 太小了（提示：${min}-${max}）`);
                     guessTime++;
-                    continue;
+                    continue;   // 可不加上continue了
                 } else if (guess > ans) {
                     max = guess;
                     alert(`第${guessTime}次：${guess} => 太大了（提示：${min}-${max}）`);
                     guessTime++;
-                    continue;
+                    continue;   // 可不加上continue了
                 } else {
                     alert(`第${guessTime}次：${guess} => 猜對了`);
                     break;
