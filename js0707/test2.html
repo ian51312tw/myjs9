@@ -21,33 +21,56 @@
                 min = arr[i];
             }
         }
-
         console.log(`最大值為 ${max}`);
         console.log(`最小值為 ${min}`);
+
         //for of
         for (let n of arr) {
             if (n > max) {
                 max = n;
-            }else if (n < min) {
+            } else if (n < min) {
                 min = n;
             }
         }
-
         console.log(`最大值為 ${max}`);
         console.log(`最小值為 ${min}`);
 
         //forEach
-        arr.forEach(function (n) {
+        arr.forEach((n) => {
             if (n > max) {
                 max = n;
-            }else if (n < min) {
+            } else if (n < min) {
                 min = n;
             }
         });
-
         console.log(`最大值為 ${max}`);
         console.log(`最小值為 ${min}`);
 
+        // map
+        arr.map((n) => {
+            if (n > max) {
+                max = n;
+            } else if (n < min) {
+                min = n;
+            }
+        });
+        console.log(`最大值為 ${max}`);
+        console.log(`最小值為 ${min}`);
+
+        // sort
+        arr.sort((a, b) => {
+            return a - b; // 遞增排序
+        });
+        console.log(arr);
+        console.log(`最大值為 ${arr[arr.length - 1]}`); //這裡要使用中括號
+        console.log(`最小值為 ${arr[0]}`); //這裡要使用中括號
+
+        // 數學類別
+        // 最大值 => Math.max()
+        // 最小值 => Math.min()
+        max = Math.max(...arr);
+        console.log(max);
+        console.log(`max=${max},min=${min}`);
 
     </script>
 </body>
