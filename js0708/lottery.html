@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>樂透</h2>
+    <hr>
+
+    <script>
+        // 亂數取威力彩第一區
+        let rd1 = Math.random() * 38;
+        let bingo1 = (Math.floor(rd1) + 1);
+        // console.log(bingo1);
+
+        // 威力彩第一區獎池(陣列內容不重複)
+        let v1 = [];
+        while (v1.length < 6) {
+            let rd1 = Math.random() * 38;
+            let bingo1 = Math.floor(rd1) + 1;
+            if (v1.includes(bingo1) == false) {
+                v1.push(bingo1);
+            }
+        }
+        // console.log(v1);
+
+        // 威力彩第二區獎池
+        let v2 = [];
+        v2.push(Math.floor(Math.random() * 8) + 1);
+        // console.log(v2);
+
+        // 威力彩獎單
+        let v = [];
+        for (i = 0; i < 6; i++) {
+            v.push(v1[i]);
+        }
+        v.push(v2[0]);
+        console.log(v);
+        console.log(`--------------------------------------------`);
+        // 亂數取大樂透第一區
+        let rd2 = Math.random() * 49;
+        let bingo2 = (Math.floor(rd2) + 1);
+        // console.log(bingo2);
+
+        // 大樂透第一區獎池(陣列內容不重複)
+        let b1 = [];
+        while (b1.length < 6) {
+            let rd2 = Math.random() * 49;
+            let bingo2 = (Math.floor(rd2) + 1);
+            if (b1.includes(bingo2) == false) {
+                b1.push(bingo2);
+            }
+        }
+        // console.log(b1);
+
+        // 大樂透第二區獎池
+        let b2 = [];
+        b2.push(bingo2);
+        // console.log(b2);
+
+        // 大樂透獎單
+        let b = [];
+        for (i = 0; i < 6; i++) {
+            b.push(b1[i]);
+        }
+        b.push(b2[0]);
+        console.log(b);
+        console.log(`--------------------------------------------`);
+        //亂數取今彩(陣列內容不重複)
+        let t = [];
+        while (t.length < 5) {
+            let rd3 = Math.random() * 39;
+            let bingo3 = (Math.floor(rd3) + 1);
+            if (t.includes(bingo3) == false) {
+                t.push(bingo3);
+            }
+        }
+        console.log(t);
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
