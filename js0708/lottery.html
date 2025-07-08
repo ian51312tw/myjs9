@@ -10,6 +10,18 @@
 <body>
     <h2>樂透</h2>
     <hr>
+    <p id="vlottery">您的威力彩號碼是</p><br>
+    <p id="vResult"></p><br>
+    <button id="vButton" onclick="vBtnClick()">取得威力彩號碼</button>
+    <hr>
+    <p id="blottery">您的大樂透號碼是</p><br>
+    <p id="bResult"></p><br>
+    <button id="bButton" onclick="bBtnClick()">取得大樂透號碼</button>
+    <hr>
+    <p id="tlottery">您的今彩號碼是</p><br>
+    <p id="tResult"></p><br>
+    <button id="tButton" onclick="tBtnClick()">取得今彩號碼</button>
+    <hr>
 
     <script>
         // 亂數取威力彩第一區
@@ -26,6 +38,7 @@
                 v1.push(bingo1);
             }
         }
+
         // console.log(v1);
 
         // 威力彩第二區獎池
@@ -40,6 +53,17 @@
         }
         v.push(v2[0]);
         console.log(v);
+        // 排序
+        let vSort = [];
+
+        v1.sort((a, b) => {
+            return a - b;
+        })
+        for (i = 0; i < 6; i++) {
+            vSort.push(v1[i]);
+        }
+        vSort.push(v2[0]);
+        console.log(vSort);
         console.log(`--------------------------------------------`);
         // 亂數取大樂透第一區
         let rd2 = Math.random() * 49;
@@ -69,6 +93,16 @@
         }
         b.push(b2[0]);
         console.log(b);
+        // 排序
+        let bSort = [];
+        b1.sort((a, b) => {
+            return a - b;
+        })
+        for (i = 0; i < 6; i++) {
+            bSort.push(b1[i]);
+        }
+        bSort.push(b2[0]);
+        console.log(bSort);
         console.log(`--------------------------------------------`);
         //亂數取今彩(陣列內容不重複)
         let t = [];
@@ -80,6 +114,31 @@
             }
         }
         console.log(t);
+
+        // 排序
+        let tSort = [];
+        t.sort((a, b) => {
+            return a - b;
+        })
+        for (i = 0; i < 5; i++) {
+            tSort.push(t[i]);
+        }
+        console.log(tSort);
+
+
+        // 按鈕
+        var vResult = document.getElementById("vResult");
+        function vBtnClick() {
+            vResult.innerHTML = v;
+        }
+        var bResult = document.getElementById("bResult");
+        function bBtnClick() {
+            bResult.innerHTML = b;
+        }
+        var tResult = document.getElementById("tResult");
+        function tBtnClick() {
+            tResult.innerHTML = t;
+        }
 
 
 
