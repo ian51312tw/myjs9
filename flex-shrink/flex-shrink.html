@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>flex練習</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		article {
+			background-color: #bbb;
+			width: 450px;
+			height: 220px;
+
+			display: flex;
+		}
+
+		article div {
+			flex: 1;
+		}
+
+		article div:nth-child(1) {
+			/* div裡面的第一個孩子(aa) */
+			background-color: rgb(160, 160, 231);
+		}
+
+		article div:nth-child(2) {
+			/* div裡面的第二個孩子(bb) */
+			background-color: rgb(105, 147, 119);
+			/* flex: 2; */
+			/* 當作兩份來與全部做均分，總共三個孩子1+(1*2)+1=4 */
+			/* 因此總長450/4*2=225 此孩子的寬度為225 */
+		}
+
+		article div:nth-child(3) {
+			/* div裡面的第三個孩子(cc) */
+			background-color: rgb(203, 130, 130);
+		}
+	</style>
+</head>
+
+<body>
+	<article>
+		<div>aaaa</div>
+		<div>bb</div>
+		<div>cccccccc</div>
+	</article>
+
+
+
+</body>
+
+</html>
