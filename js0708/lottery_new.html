@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>產生樂透號碼</h2>
+    <p>
+        <button onclick="lott1()">威力彩</button>
+        <button onclick="lott2()">大樂透</button>
+        <button onclick="lott3()">今彩539</button>
+    </p>
+
+    <p id="sortBefore">排序前號碼</p>
+    <p id="sortAfter">排序後號碼</p>
+    <p id="secNo">第二區號碼</p>
+
+    <script>
+        function lott1() {
+            // 亂數取威力彩第一區
+            let v1 = [];
+            while (v1.length < 6) {
+                let rd1 = Math.floor(Math.random() * 38) + 1;
+
+                // 威力彩第一區獎池(陣列內容不重複)
+                if (v1.includes(rd1) == false) {
+                    v1.push(rd1);
+                }
+            }
+
+            // 威力彩第二區獎池
+            let v2 = [];
+            v2.push(Math.floor(Math.random() * 8) + 1);
+
+            sortBefore.textcontent = "您的威力彩號碼是：" + v1;
+            v1.sort((a, b) => a - b);
+            sortAfter.textContent = "排序後號碼：" + v1;
+            secNo.textContent = "第二區號碼：" + v2[0];
+        }
+
+
+    </script>
+
+</body>
+
+</html>
