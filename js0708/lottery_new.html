@@ -36,11 +36,16 @@
             let v2 = [];
             v2.push(Math.floor(Math.random() * 8) + 1);
 
-            sortBefore.textcontent = "您的威力彩號碼是：" + v1;
-            v1.sort((a, b) => a - b);
+
+            sortBefore.textContent = "您的威力彩號碼是：" + v1;
+            v1.sort((a, b) => {
+                return a - b;
+            })
             sortAfter.textContent = "排序後號碼：" + v1;
             secNo.textContent = "第二區號碼：" + v2[0];
         }
+        // -------------------------------------------------------------
+        
 
 
     </script>
