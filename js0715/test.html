@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ex1
+        function printMany() {
+            for (let i1 = 1; i1 <= 100; i1++) {
+                console.log(i1);
+            }
+        }
+        printMany();
+        // -----------------------------------------------
+        // ex2
+        function printEvery3() {
+            for (let i2 = 1; i2 <= 88; i2 = i2 + 3) {
+                console.log(i2);
+            }
+        }
+        printEvery3();
+        // -------------------------------------------------
+        // ex3
+        function stars(amount) {
+            let star = "";
+            for (let i3 = 0; i3 <= amount; i3++) {
+                star += "*";
+            }
+            console.log(star);
+        }
+        stars(3);
+        stars(10);
+        // ---------------------------------------------------
+        // ex4
+        function isUpperCase(strings) {            
+            if (strings.length === 0) {
+                return false;
+            }
+                let firstAlpha = strings[0];                
+                return firstAlpha.toUpperCase() === firstAlpha;
+            }
+        console.log(isUpperCase("ABCD"));
+        console.log(isUpperCase(""));
+        console.log(isUpperCase("aBCD"));
+
+        // ---------------------------------------------------
+        //ex5
+        // let strings = "abcd" 
+        // strings.toUpperCase()
+        function isUpperCase2(strings) {
+            if (strings.length === 0) {
+                return false;
+            }
+            if (strings.toUpperCase() === strings) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(isUpperCase2("ABCD"));
+        console.log(isUpperCase2(""));
+        console.log(isUpperCase2("ABCDEFGHIJKLm"));
+        // ----------------------------------------------------
+        // ex6
+        function position(strings ) {
+            indexOf()
+
+        }
+        strings="bCd"
+        console.log(indexOf(strings));
+        // console.log(position("AbcD"));
+        // console.log(position("abcD"));
+    </script>
+</body>
+
+</html>
