@@ -37,13 +37,14 @@
         stars(10);
         // ---------------------------------------------------
         // ex4
-        function isUpperCase(strings) {            
-            if (strings.length === 0) {
+        function isUpperCase(strings) {
+            if (strings.trim().length === 0) {
                 return false;
             }
-                let firstAlpha = strings[0];                
-                return firstAlpha.toUpperCase() === firstAlpha;
-            }
+            return strings[0] === strings[0].toUpperCase();
+            // let firstAlpha = strings[0];                
+            // return firstAlpha.toUpperCase() === firstAlpha;
+        }
         console.log(isUpperCase("ABCD"));
         console.log(isUpperCase(""));
         console.log(isUpperCase("aBCD"));
@@ -53,7 +54,7 @@
         // let strings = "abcd" 
         // strings.toUpperCase()
         function isUpperCase2(strings) {
-            if (strings.length === 0) {
+            if (strings.trim().length === 0) {
                 return false;
             }
             if (strings.toUpperCase() === strings) {
@@ -67,14 +68,12 @@
         console.log(isUpperCase2("ABCDEFGHIJKLm"));
         // ----------------------------------------------------
         // ex6
-        function position(strings ) {
-            indexOf()
+        function position(strings) {
 
         }
-        strings="bCd"
-        console.log(indexOf(strings));
-        // console.log(position("AbcD"));
-        // console.log(position("abcD"));
+        console.log(position("abcd"));
+        console.log(position("AbcD"));
+        console.log(position("abcD"));
     </script>
 </body>
 
