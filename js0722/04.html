@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函數的傳回值(return)
+        // 建立一個checkScore()函式，若超出分數有效範圍，離開函式，否則檢查是否及格
+        let checkScore = (score) => {
+            // 檢查是否超出分數的有效範圍，若超過就離開函式
+            if (score < 0 || score > 100) {
+                console.log("分數超出有效範圍");
+                return; /* return後面沒有任何動作，即表示結束函式 */
+            }
+            // 檢查是否及格
+            if (score >= 60) {
+                console.log("及格了");
+            } else {
+                console.lod("不及格");
+            }
+        }
+        checkScore(88);
+        // -----------------------------------------------------------------
+        // 建立一個addsub()函式，計算和與差，傳回合與差兩個值
+        let addsub = (n1, n2) => {
+            let add = n1 + n2;
+            let sub = n1 - n2;
+            return [add,sub]; /* 超過兩個回傳值要加入陣列 */
+        }
+        // console.log(addsub(5,3));
+        let result = addsub(5,3);
+        console.log(result);
+        console.log(`兩數相加為${result[0]}，兩數相減為${result[1]}`);
+    </script>
+</body>
+
+</html>

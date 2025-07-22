@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立一個add()函式，計算所有參數的總和
+        // 若不使用的話每次需新加參數時便需要多指定預設參數=0
+        // let add = (n1, n2, n3 = 0, n4 = 0) => {
+        //     let tot = n1 + n2 + n3 + n4;
+        //     return tot;
+        // }
+
+        // 【常見】其餘參數，可接收不同參數值的個數使用
+        // let add = (...number) => {
+        //     let tot = 0;
+        // for (let n of number) {
+        //     tot += n;
+        // }
+        //     for(let n=0;n<number.length;n++){   /* 用for迴圈寫要小心陣列陷阱 */
+        //         // 因此一般還是推薦使用上面的for...of
+        //         tot+=number[n];
+        //     }
+        //     return tot;
+        // }
+        // 實際上傳過去的是陣列！[5,3,8......]以此類推
+
+        // 其餘陣列參數
+        let add = (...[x, y, z=0]) => { /* 如果參數放入長度不足陣列，需設定預設參數，不然會undefine NAN */
+            console.log(x);
+            console.log(y);
+            console.log(z);
+
+            return x+y+z;
+        }
+
+        console.log(add(5, 3));
+        console.log(add(5, 3, 8));
+        console.log(add(5, 3, 8, 10));  /* 因超過陣列範圍，10不會被納入 */
+        console.log(add(5, 3, 8, 10, 100));
+
+
+    </script>
+</body>
+
+</html>
