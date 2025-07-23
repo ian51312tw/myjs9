@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 將函式當作其他函式的傳回值 => 就是指傳回值的內容是一個函式
+
+        let sayHi = (name) => {
+            return function () {
+                console.log(name);
+            }
+        }
+        // return的內容如果是一個函式，在呼叫外層函式求解時要在呼叫後加上小括號！
+        sayHi("AAAA")();
+
+        let sayHi2 = (name) => {
+            return console.log(name);
+        }
+        sayHi2("AAAAA");
+
+        let sayHi3 = (name) => {
+            // 傳回值帶有參數
+            return function (str1) {
+                console.log("Hi," + name + "," + str1);
+            }
+        }
+        // 第一個小括號中的參數給前方函數(外層函數)使用，第二個給傳回參數用
+        // 不過兩者會相黏，須注意分隔
+        sayHi3("BB")("BBB");
+
+    </script>
+</body>
+
+</html>

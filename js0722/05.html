@@ -9,17 +9,29 @@
 
 <body>
     <script>
-        // 將函式當作其他函式的參數
+        // 將函式當作其他函式的參數（函式中的參數是指向一個函式）
         let sayHi = () => {
             return "Hi, ";
         }
+        // 寫法1
+        let welcome = (name) => {
+            console.log(sayHi() + name);
+        }
+        welcome("AAA");
 
-        let welcome = (callback, name) => {
+        // 寫法2
+        let welcome2 = (callback, name) => {
             console.log(callback() + name);
         }
-        welcome(sayHi, "AA");
+        // 這邊只能寫函式名稱sayHi，而不是寫sayHi()
+        // 因此時的小括號代表執行函式，在呼叫函式時不可另外再執行函式
+        // welcome2執行要求的callback()屬性為函式
+        // sayHi為函式，但sayHi()將回傳"Hi"為字串
+        // 在執行上因回傳的字串與函式屬性不匹配，而會出現錯誤
+        welcome2(sayHi, "AA");
 
-        // 將函式當作其他函式的傳回值
+        // 將函式當作其他函式的傳回值 => 就是指傳回值的內容是一個函式
+
     </script>
 </body>
 

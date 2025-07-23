@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 方法2：使用建構子方式建立物件：使用new關鍵字建立一個空物件後，再加入屬性與方法
+        // 1. 建立一個空物件
+        let user = new Object();
+        /* 基本上等於let user={}，但方法1在delete後不能追加物件 */
+
+        // 2. 建立姓名屬性
+        user.name = 'Ian';
+        // 3. 建立年齡屬性
+        user["age"] = 16;
+        // 4. 建立方法
+        user.showMsg = function () {
+            console.log(`Hi，我是${this.name}`);
+            console.log(`我今年${this.age}歲`);
+        }
+
+        // 呼叫物件方法
+        user.showMsg();
+        // 呼叫物件屬性
+        console.log(user["age"]);
+        // 更新年齡屬性值
+        user.age = 17;
+        console.log(user.age);
+        // 再追加一個物件屬性
+        user.email = "xxx@xxx.com.tw";
+        console.log(user.email);
+        // 刪除物件屬性
+        console.log("刪除前的物件成員",user);
+        delete user.age;
+        console.log("刪除後的物件成員",user);
+        // 可比照刪除物件屬性來刪除物件方法(不可加小括號)
+        delete user.showMsg;
+        console.log(user);
+
+    </script>
+</body>
+
+</html>

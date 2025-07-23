@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 過往要留存使用者資料可能會建立很多變數
+        // var userid;
+        // var username;
+        // var userpass;
+        // var userH;
+        // var userW;
+        // var userEmail;
+
+
+        // 建立物件
+        // 方法1-實體化
+        let user = {
+            // 屬性成員
+            name: "AA",
+            age: 16,
+            // 方法成員
+            showMsg: function () {
+                // 調用同一個物件中的屬性成員
+                // 方法1：
+                console.log("Hi,我是" + user.name + "！");
+                // 方法2： *常用識別式*this表示跟該成員處同物件環境
+                console.log("Hi,我是" + this.name + "！");
+            }
+        };  /* 結尾加上分號表示建立物件結束 */
+
+        // 取得物件屬性=>物件名稱.屬性名稱
+        // 使用成員運算子( . )
+        console.log(`使用者姓名：${user.name}`);
+        console.log(`使用者年齡：${user.age}歲`);
+        
+        // 使用中括號表示法取得物件屬性
+        // 物件名稱["屬性名稱"];(單雙引號都可以)
+        console.log(`使用者姓名2：${user['name']}`);
+        console.log(`使用者年齡2：${user["age"]}歲`);
+
+        // 呼叫取得物件方法(要加小括號)=>物件名稱.方法名稱()
+        user.showMsg();
+
+        // 變更物件的屬性
+        // 物件名稱.屬性名稱=屬性值
+        user.age=17;
+        console.log(user.age);
+        console.log(user["age"]);
+
+        // delete物件名稱.屬性名稱;
+        delete user.age;
+
+        // 刪除物件的屬性：刪除後再取得此屬性，會傳回【undefined】
+        console.log(user["age"]);   /* undefined */
+
+        
+
+
+    </script>
+</body>
+
+</html>
