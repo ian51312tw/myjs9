@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 練習4：按下提交按鈕時，檢查是否按了「我同意合約」，若沒有，顯示訊息並取消提交動作 -->
+    <form id="myForm">
+        <!-- 核取方塊 -->
+        <input type="checkbox" id="agree">我同意合約
+        <!-- 訊息顯示 -->
+        <span id="msg">1122111212121</span><br>
+        <!-- 送出按鈕 -->
+        <input type="submit" value="送出">
+    </form>
+
+    <script>
+        // 取得表單
+        let myForm = document.querySelector('#myForm');
+        // 取得核取方塊
+        let agree = document.querySelector('#agree');
+        // 取得訊息位置
+        let msg = document.querySelector('#msg');
+
+        myForm.addEventListener('submit', (e) => {  /* e為常用標籤，表示event，一個方法、事件 */
+            // 檢查是否「沒有」被勾選
+            if (!agree.checked) {
+                msg.textContent = "必須選取「我同意合約」";
+                msg.style.color="red";
+                e.preventDefault(); /* 取消預設行為，可能會出現錯誤或是須立即停止的情況要下這個指令 */
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

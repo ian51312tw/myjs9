@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="url">請選擇網站</label>
+        <!-- 下拉式選單 -->
+        <select name="" id="url">
+            <option value="">請選擇</option>
+            <option value="https://www.google.com/?hl=zh_TW">google</option>
+            <option value="https://translate.google.com.tw/?hl=zh-TW&sl=auto&tl=zh-TW&op=translate">翻譯</option>
+            <option value="https://drive.google.com/drive/home">雲端</option>
+        </select>
+        <script>
+            // 取得下拉清單的位置
+            let url = document.getElementById('url');
+            url.addEventListener('change', () => {
+                if (url.value.length > 0) {
+                    let newWin = open();  /* 開新分頁 */
+                    newWin.location.href = url.value;
+                    // 不會開新分頁
+                    // this.location.href=url.value;    /* this可省略不寫 */
+                }}); 
+        </script>
+    </form>
+</body>
+
+</html>
