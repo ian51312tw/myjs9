@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        /* 複合式規則 */
+        form span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <!-- 帳號-文字方塊 -->
+        <label for="uid"><!-- <span style="color: red;">*</span> --><span>*</span>帳號</label>
+        <input type="text" id="uid"><br> <!-- required為必須填寫資料，瀏覽器會自動提示 -->
+        <!-- 密碼-文字方塊(不可視) -->
+        <label for="upw"><span>*</span>密碼</label>
+        <input type="password" id="upw"><br> <!-- type為password即會自動遮住輸入 -->
+
+        <!-- err錯誤訊息 -->
+        <span id="msg"></span><br><br>
+
+
+        <!-- 送出 -->
+        <!-- <input type="submit" value="送出"> value為把提交按鈕的預設字眼進行修改 -->
+        <input id="btn" type="button" value="確定送出">
+        <!-- 重設 -->
+        <!-- <input type="reset" value="重新填寫"> -->
+
+    </form>
+
+    <script>
+        let uid = document.querySelector('#uid');
+        let upw = document.querySelector('#upw');
+        let msg = document.querySelector('#msg');
+
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', () => {
+            let strMsg = "";  /* 存放所有顯示訊息，後續會丟給msg */
+            // 帳號檢查
+            if (uid.value.length === 0) {
+                strMsg += "帳號不可空白<br>";
+            }
+            // 密碼檢查
+            if (upw.value.length === 0) {
+                strMsg += "密碼不可空白<br>";   /* +=表示寫在原訊息後面，並且加上<br>進行換行 */
+            }
+            // 顯示訊息結果
+            msg.innerHTML = strMsg;
+            msg.style.color = "green";
+        })
+    </script>
+
+    <!-- <div>
+        <h2>testtesttest<span>color</span></h2>
+    </div> -->
+</body>
+
+</html>
