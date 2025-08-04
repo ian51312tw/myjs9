@@ -1,12 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>基本表單</title>
+    <style>
+        form>* {
+            display: block;
+        }
+
+        label {
+            margin-top: 30px;
+        }
+    </style>
 </head>
+
 <body>
-    <form action=""></form>
-    <form action="" method="post" accept-charset="UTF-8"></form>
+    <!-- 搜尋表單 -->
+    <h2>搜尋商品</h2>
+    <form name="searchform" id="searchform" action="" method="post" accept-charset="UTF-8">
+        <label for="search">搜尋：</label> <!-- for是屬於無障礙設計功能，會進行導讀等輔助 -->
+        <input type="search" name="search" id="search"> <!-- 會回傳到資料庫的資料是name -->
+        <input type="submit" value="搜尋">
+    </form>
+    <!-- 會員資料修改 -->
+    <h2>會員資料修改</h2>
+    <small>「*」為必填</small>
+    <form name="memberform" id="memberform" action="" method="post" accept-charset="UTF-8">
+
+        <label for="username">*姓名：</label>
+        <!-- required為必填 | autofocus欄位必須在first view頁面顯示才能設定 不然畫面會亂跑 -->
+        <input type="text" name="username" id="username" title="姓名欄位" placeholder="請輸入您的姓名" required autofocus>
+
+        <label for="userid">*身分證字號：(只讀)</label>
+        <input type="text" name="userid" id="userid" title="身份證字號欄位" required readonly value="A123456789">
+
+        <label for="userac">*帳號：(禁用)</label>
+        <input type="text" name="userac" id="userac" title="帳號欄位" required disabled value="@@@@@@@@">
+
+        <!-- for跟id不可重複，若以密碼&確認密碼為例，需編號或是加入可辨識字眼 -->
+        <label for="userpw-1">密碼：</label>
+        <input type="password" name="password" id="userpw-1" title="密碼欄位" placeholder="請輸入6位以上英文+數字">
+
+        <label for="userpw-2">確認密碼：</label>
+        <input type="password" name="password" id="userpw-2" title="確認密碼欄位" placeholder="請輸入與上方相同密碼">
+
+        <label for="email">*Email：</label>
+        <!-- multiple 可輸入多個值，用"，"隔開 -->
+        <input type="email" name="email" id="email" required multiple title="Email欄位" placeholder="請輸入您的Email">
+
+        <label for="tel">連絡電話：</label>
+        <input type="tel" name="tel" id="tel" maxlength="10" title="連絡電話欄位" placeholder="例如：0997979797">
+
+        <label for="website">官方網站：</label>
+        <input type="url" name="website" id="website" placeholder="請輸入網址">
+
+        <label for="">上傳檔案：</label>
+        <small>僅限.jpg, .png, .gif, .pdf檔案類型</small>
+        <input type="file" name="file" id="file" multiple>
+
+        <label for="color">選擇顏色：</label>
+        <input type="color" name="color" id="color">
+
+        <label for="number">購買數量：</label>
+        <input type="number" name="number" id="number" style="width: 50px;">
+        <!-- 用滑快控制輸入數字 -->
+        <input type="range" name="range" id="range">
+
+        <label for="birthday">生日：</label>
+        <input type="date" name="birthday" id="birthday">
+
+        <!-- 下拉選單(select) -->
+        <label for="sex">性別：</label>
+        <select name="sex" id="sex">
+            <option value="">請選擇</option> <!-- 不預設對方性別，因此留空value(可省略)，給予選項但不給回傳值 -->
+            <option value="生理男">生理男</option>
+            <option value="生理女">生理女</option>
+        </select>
+
+        <label for="other">其他類別：</label>
+        <select name="other" id="other">
+            <option>請選擇</option>
+            <!-- 分類 -->
+            <optgroup label="分類一">
+                <option value="選項1">選項1</option>
+                <option value="選項2">選項2</option>
+                <option value="選項3">選項3</option>
+            </optgroup>
+            <optgroup label="分類二">
+                <option value="選項1">選項1</option>
+                <option value="選項2">選項2</option>
+                <option value="選項3">選項3</option>
+            </optgroup>
+        </select>
+
+        <!-- 單選按鈕 -->
+        <!-- 同組選項的單選按鈕name要設定相同名稱，才可以進行判定 -->
+        <fieldset disabled> <!-- 可禁用 -->
+            <legend>會員類型</legend>
+            <input type="radio" name="member" id="member-1" value="金卡會員" checked> <!-- 可預選 -->
+            <label for="member-1">金卡會員</label>
+            <input type="radio" name="member" id="member-2" value="銀卡會員">
+            <label for="member-2">銀卡會員</label>
+            <input type="radio" name="member" id="member-3" value="銅卡會員">
+            <label for="member-3">銅卡會員</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>訂閱方案：</legend>
+            <input type="radio" name="category" id="category-1" value="類型1" checked>
+            <label for="category-1">1年</label>
+            <input type="radio" name="category" id="category-2" value="類型2">
+            <label for="category-2">30天</label>
+            <input type="radio" name="category" id="category-3" value="類型3">
+            <label for="category-3">15天</label>
+            <input type="radio" name="category" id="category-4" value="類型4">
+            <label for="category-4">7天</label>
+        </fieldset>
+
+        <!-- 複選框 -->
+        <fieldset>
+            <legend>訂閱新聞類型：</legend>
+
+            <input type="checkbox" name="order" id="order-1" value="國際">
+            <label for="order-1">國際</label>
+            <input type="checkbox" name="order" id="order-2" value="社會">
+            <label for="order-2">社會</label>
+            <input type="checkbox" name="order" id="order-2" value="財經">
+            <label for="order-3">財經</label>
+            <input type="checkbox" name="order" id="order-4" value="科技">
+            <label for="order-4">科技</label>
+            <input type="checkbox" name="order" id="order-5" value="娛樂">
+            <label for="order-5">娛樂</label>
+
+        </fieldset>
+        <!-- 多行文字欄位 -->
+        <label for="">留言</label>
+        <textarea name="message" id="message" rows="5" style="width: 300px;"></textarea>
+
+
+        <!-- 表單按鈕一定要放在<form>中 -->
+        <input type="reset" value="重填">
+        <input type="submit" value="送出">
+
+
+    </form>
 </body>
+
 </html>
