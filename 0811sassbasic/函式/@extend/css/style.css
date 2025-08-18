@@ -1,0 +1,7 @@
+@charset "UTF-8";
+/* 偏藍的灰會給人比較乾淨的感覺 */
+#contact, #news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

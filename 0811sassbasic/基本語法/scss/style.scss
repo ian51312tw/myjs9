@@ -1,0 +1,109 @@
+$deep: #444;
+$deep: #888 !default;
+$dark: #666;
+$gray: #999;
+$light: #f1f1f1;
+// 背景
+$bg-1: #f2edf0;
+$bg-2: #e6ece5;
+$bg-3: #ecf0f4;
+
+// 間距
+$p-x-10: 0 10px;
+$p-x-15: 0 15px;
+
+// 字級
+$f-s-sm: .8rem;
+$f-s-md: 1rem;
+$f-s-lg: 1.2rem;
+
+// RWD
+$mediaSM: "max-width:640px";
+$mediaMD: "max-width:820px";
+
+#contact {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    @media($mediaMD) {
+        height: auto;
+    }
+
+    .content {
+        display: flex;
+        width: 80%;
+
+        @media ($mediaSM) {
+            flex-direction: column;
+        }
+    }
+}
+
+#topbar {
+    .menu {
+        color: $deep;
+        padding: 0 10px;
+        border-radius: 999px;
+
+        a {
+            font: {
+                family: 'Times New Roman', Times, serif;
+                weight: 700;
+                size: $f-s-sm;
+            }
+
+            line-height: $f-s-sm*1.5;
+            margin: 10px;
+            border-bottom: 2px solid transparent;
+            // 保留hover空間，以防尺寸變動
+
+            &:hover {
+                $deep: #111;
+                color: $deep;
+                border-bottom: 2px solid $deep;
+                // 邊框-下
+            }
+        }
+    }
+}
+
+.icon {
+    &-fb {
+        background-image: url(../images/icon-fb.svg);
+
+        &:hover {
+            background-image: url(../images/icon-fb-hover.svg);
+        }
+    }
+
+    &-ig {
+        background-image: url(../images/icon-ig.svg);
+
+        &:hover {
+            background-image: url(../images/icon-ig-hover.svg);
+        }
+    }
+
+    &-line {
+        background-image: url(../images/icon-line.svg);
+
+        &:hover {
+            background-image: url(../images/icon-line-hover.svg);
+        }
+    }
+}
+
+.title {
+    h2 {
+        font: {
+            family: Rosaline, serif;
+            size: 2rem;
+            weight: 700px;
+        }
+    }
+}

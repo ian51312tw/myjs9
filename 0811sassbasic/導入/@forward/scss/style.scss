@@ -1,0 +1,14 @@
+@use "reset";
+@use "variables" as *;
+
+.title {
+    text-align: center;
+
+    h2 {
+        font-family: $family-en;
+    }
+
+    h3 {
+        font-family: $family-tc;
+    }
+}

@@ -1,0 +1,6 @@
+// 匯集檔一定要叫_index
+// 因為會被上層檔案抓出，所以即使這邊跟其他變數檔案同層，還是要先回上層再抓需匯入的變數檔案
+// 後續調用時外層檔案匯集判定才不會錯亂
+@forward "../variables/color";
+@forward "../variables/font";
+@forward "../variables/size";

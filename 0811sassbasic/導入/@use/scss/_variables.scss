@@ -1,0 +1,52 @@
+// color
+$primary: #79ccff;
+$mode-dark: #4d4d4d;
+$mode-light: #f4f4f4;
+
+// Neutral colors: 中性色
+$white: #f7f9fb;
+$light: #f2f7fa;
+/* 偏藍的灰會給人比較乾淨的感覺 */
+$light-gray: #e7ebee;
+$gray: #c8cacc;
+$dark-gray: #a9acad;
+$deep-gray: #828486;
+$charcoal: #393a3a;
+$black: #0a0a0a;
+
+// font-family
+$family-en: Rosaline, serif;
+// $tc: "LXGW WenKai TC";
+// $family-tc: "#{$tc},cursive";
+$family-tc: "LXGW WenKai TC", cursive;
+
+// font-size
+$f-s-xs: .75rem;
+$f-s-sm: .85rem;
+$f-s-md: 1rem;
+$f-s-lg: 1.2rem;
+$f-s-xl: 1.5rem;
+$f-s-xxl: 1.8rem;
+$f-s-ex: 4rem;
+
+// spacing
+$space-sm: 15px;
+$space-md: 20px;
+$space-lg: 25px;
+$space-xl: 30px;
+
+$space-x-sm: 0 15px;
+$space-x-md: 0 20px;
+$space-x-lg: 0 25px;
+$space-x-xl: 0 30px;
+
+$space-y-xs: 10px 0;
+$space-y-sm: 15px 0;
+$space-y-md: 20px 0;
+$space-y-lg: 25px 0;
+$space-y-xl: 30px 0;
+
+// radius
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 24px;

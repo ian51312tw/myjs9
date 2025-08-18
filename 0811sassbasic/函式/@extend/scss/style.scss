@@ -1,0 +1,10 @@
+@use "reset";
+@use "variables" as *;
+@use "function";
+
+#contact {
+    @extend %flex-center;
+}
+#news {
+    @extend %flex-center;
+}
