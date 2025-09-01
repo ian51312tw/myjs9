@@ -44,4 +44,5 @@ function getlott(tp, firstMax, firstNum, secMax) {    /* 原函式名稱為lott�
     })
     sortAfter.textContent = "排序後號碼:" + lott;
     // 第二區：1-8取1個
+    console.log(lott);
 } 

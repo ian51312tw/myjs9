@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<title>圖片旋轉控制</title>
+<style>
+  /* 圖片基本樣式 */
+  .spin-target {
+    width: 220px;              /* 依需要調整尺寸 */
+    display: block;
+    margin: 24px auto;
+    /* 預設不轉（paused），等加上 .running 才開始 */
+    animation: spin 10s linear infinite;
+    animation-play-state: paused;
+    transform-origin: 50% 50%;
+  }
+
+  /* 勾選啟動時套用 */
+  .spin-target.running {
+    animation-play-state: running;
+  }
+
+  /* 旋轉關鍵影格 */
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* 尊重使用者的「降低動態效果」偏好（可選） */
+  @media (prefers-reduced-motion: reduce) {
+    .spin-target { animation: none; }
+  }
+
+  .ctrl {
+    text-align:center;
+    font-family: system-ui, "Noto Sans TC", sans-serif;
+  }
+</style>
+</head>
+<body>
+  <div class="ctrl">
+    <label>
+      <input id="toggle-spin" type="checkbox" checked>
+      開始旋轉
+    </label>
+  </div>
+
+  <!-- 你的圖片 -->
+  <img id="logo" class="spin-target" src="test.png" alt="我的圖片">
+
+  <script>
+    const checkbox = document.getElementById('toggle-spin');
+    const img = document.getElementById('logo');
+
+    // 預設：若勾選就開始旋轉
+    function sync() {
+      if (checkbox.checked) {
+        img.classList.add('running');
+      } else {
+        img.classList.remove('running');
+      }
+    }
+
+    // 初始化與狀態變更
+    checkbox.addEventListener('change', sync);
+    // 圖片載入完成後同步一次（避免載入順序造成狀態不同步）
+    if (img.complete) {
+      sync();
+    } else {
+      img.addEventListener('load', sync, { once: true });
+    }
+  </script>
+</body>
+</html>

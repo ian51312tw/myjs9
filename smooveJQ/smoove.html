@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>卷軸位置(滑入動畫Scroll)</title>
+    <style>
+        header {
+            line-height: 100vh;
+            text-align: center;
+            background: rgb(219, 180, 211);
+            font-size: 3rem;
+            color: beige;
+        }
+
+        footer {
+            line-height: 40vh;
+            text-align: center;
+            background: rgb(219, 180, 211);
+            font-size: 3rem;
+            color: beige;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .smoove {
+            flex: 1;
+            background-color: rgb(186, 231, 216);
+            margin: 10px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>BANNER</header> <!-- 先往下推 下方才可以產生載入動作及動畫 -->
+    <main></main>
+    <div class="row">
+        <div class="smoove"></div>
+        <div class="smoove"></div>
+    </div>
+    <!-- 旋轉載入 -->
+    <div class="row">
+        <div class="smoove" data-move-x="-500px" data-rotate="90deg"></div>
+        <div class="smoove" data-move-x="-250px" data-rotate="45deg" data-move-y="150px"></div>
+        <div class="smoove" data-move-x="-100px" data-rotate="-90deg"></div>
+    </div>
+    <!-- 左右載入 -->
+    <div class="row">
+        <div class="smoove" data-move-x="-300px" data-move-y="200px"></div>
+        <div class="smoove" data-move-x="-150px" data-move-y="200px"></div>
+        <div class="smoove" data-move-x="150px" data-move-y="200px"></div>
+        <div class="smoove" data-move-x="300px" data-move-y="200px"></div>
+    </div>
+    <!-- 翻轉載入 -->
+    <div class="row">
+        <div class="smoove" data-move-x="-150%" data-rotate-y="-90deg"></div>
+        <div class="smoove" data-move-x="150%" data-rotate-y="90deg"></div>
+    </div>
+    <!-- 遠近放大載入 -->
+    <div class="row">
+        <div class="smoove smo-z"></div>
+        <div class="smoove smo-z"></div>
+        <div class="smoove smo-z"></div>
+    </div>
+    <!-- 透視載入 -->
+    <div class="row">
+        <div class="smoove smo-per"></div>
+        <div class="smoove smo-per"></div>
+        <div class="smoove smo-per"></div>
+        <div class="smoove smo-per"></div>
+        <div class="smoove smo-per"></div>
+    </div>
+    <footer>FOOTER</footer>
+    <!-- JQ CDN -->
+    <!-- 花市那個檔案 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- JQ smoove -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
+    <!--  MY JQ -->
+    <script>
+        // smoove共用預設
+        $(".smoove").smoove({
+            offset: 250
+        });
+        // 遠近放大載入
+        $(".smo-z").smoove({
+            moveZ: '-500px',
+        });
+        // 透視載入
+        $(".smo-per").smoove({
+            rotateX: "90deg",
+            moveZ: '-500px',
+        });
+    </script>
+</body>
+
+</html>
